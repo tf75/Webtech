@@ -3,6 +3,7 @@
 	<head>
 		<title> The Brass Pig </title>
 		     		<link rel="stylesheet" type="text/css" href="style.css" />
+		     		<script src="handlebars-v4.0.10.js"></script>
 	</head>
 
 	<body>
@@ -15,7 +16,7 @@
     		<div id="nav">
     			<h2> navigation </h2> 
 			    <ul>
-			    <li><a class="selected" href="login.html">Home</a></li>
+			    <li><a class="selected">Home</a></li>
 			    </ul>
 			    <div class="square">
 					<img src="brasspig.jpg"/>
@@ -36,8 +37,15 @@
 			<p><strong> Reviews </strong></p>
 		</div>
 		</div>
+		<div id = "Review"></div>
+		<script type="text/javascript">
+	    var info = "<p> My name is {{name}} and I live at {[street}} in {{city}}, {{state}}</p>";
+        var template = Handlebars.compile(info);
+        var data = template({name: "DEREK", street: "WASHINGTON", city: "LEAMINGTON", state: "EASHINGTON"});
+        document.getElementById("Review").innerHTML += data;
+		</script>
 
-		<div id= "footer"> | Contact details: Unit 1, Clifton Heights, Triangle West, Bristol BS8 1EJ | 0117 3294471 | 	
+		<div id= "footer"> | Contact details: Unit 1, Clifton Heights, Triangle West, Bristol BS8 1EJ | 0117 3294471 | <a class="selected" href="register.html">Register</a> 	
 		</div>	
 	</div>
 	</body>	

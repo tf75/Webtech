@@ -4,12 +4,23 @@ var path = require('path');
 var expressValidator = require('express-validator');
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('example.db');
-
+var db = new sqlite3.Database('User.db');
+var exphbs  = require('express-handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json());
+app.engine('handlebars', exphbs({defaultLayout: 'home'}));
+app.set('view engine', 'handlebars');
+
+app.get('/brasspig', function (req, res) {
+    res.render('brasspig');
+});
 
 app.post('/users/add', function(req, res, url){
-	console.log(req.url);
    res.type('application/xhtml+xml');
     req.on('data', add);
     req.on('end', end);
@@ -17,8 +28,7 @@ app.post('/users/add', function(req, res, url){
     function add(chunk) {
         body = body + chunk.toString();
     }
-    function end() {
-    	console.log(body);    
+    function end() {    
 	    var personData = new Array();
 	    personData = body.split("&");
 
@@ -29,25 +39,47 @@ app.post('/users/add', function(req, res, url){
 	    	personData[i] = temp;
 
 	    }
-	        console.log(personData[0]); 
-	        console.log(personData[1]); 
-	        console.log(personData[2]); 
 
 	        var stmt = db.prepare("INSERT INTO Person (Username, Password, Email) VALUES (?, ?, ?)");
 	        stmt.run(personData[0], personData[1], personData[2]);
 	        stmt.finalize(); 
-
-
     }
 
+    res.redirect('../review.html')
 
-  // db.run("INSERT INTO Person (Username, Password, Email) VALUES (?, ?, ?)", );
+   });
 
-   //var info = req.body
-   //db.each("SELECT Username, Email, Password FROM Person",function(err,row)
-   //{
-  //console.log("example.Username"+row.Username, row.Email); 
-   //});
+app.post('/users/review', function(req, res, url){
+    res.type('application/xhtml+xml');
+    req.on('data', add);
+    req.on('end', end);
+    var body = "";
+    function add(chunk) {
+        body = body + chunk.toString();
+    }
+    function end() {   
+	    var personData = new Array();
+	    personData = body.split("&");
+
+	    var temp = "";
+	    for (var i = 0; i<4; i++){
+	    	temp = personData[i];
+	    	temp = temp.slice(6);
+	    	personData[i] = temp;
+
+	    }
+            console.log(personData[0]);
+            console.log(personData[1]);
+            console.log(personData[2]);
+            console.log(personData[3]);
+
+	        var stmt = db.prepare("INSERT INTO Review (Username, Pubname, Date, Text) VALUES (?, ?, ?, ?)");
+	        stmt.run(personData[0], personData[1], personData[2], personData[3]);
+	        stmt.finalize(); 
+    }
+
+    res.redirect('../index.html')
+
    });
 
 app.listen(3000, function(){
