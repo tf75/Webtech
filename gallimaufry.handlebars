@@ -1,0 +1,62 @@
+<div id="container">
+   		<div id="header">
+   			<div id="svg">
+			 	<img src="circle.svg"
+			 	 width="90" height="130"/>
+	  	 	</div>
+	   		<div id="textcontainer">
+		     	<h1>The Gallimaufry</h1>
+	    	</div>
+  	 	</div>
+      
+   		<div id="content">
+    		<div id="nav">
+    			<h2> navigation </h2> 
+			    <ul>
+			    <li><a class="selected" href="">Home</a></li>
+			    </ul>
+			    <div class="square">
+					<img src="gallimaufry.jpg"/>
+				</div>
+		    </div>
+    
+    	<div id="main">
+		<p><strong> About </strong></p>
+
+		<p> Large, quirky wine bar with lived-in furniture and outdoor terrace, plus Modern European restaurant. </p>
+		
+		<p> Monday to Saturday, there’s a tasty selection of brunch dishes, from eggs to sandwiches to pub staples like fish and chips. The ‘Galli hangover cure’ – a hearty combination of mackerel, chorizo, potato and red peppers, all cooked in a skillet, comes highly recommended!	</p>
+
+		<p>
+			During the week live music normally begins around 9.30pm and features a host of local, national and international talents. Expect folk, jazz, funk, blues and beyond. There’s an exciting DJ line-up each weekend, mainly sourced from record shops local to us. Expect classic to modern soul, disco to electronica, 80′s/AOR to hip-hop.  
+		</p>
+
+
+		<p><strong> Reviews </strong></p>
+
+
+		<table>
+             {{#each data}}
+             <tr> 
+              <td> 
+                {{name}}
+              </td>
+              <td>
+                {{review}}
+              </td>
+             </tr>
+             {{/each}}
+            </table>
+            
+		</div>
+
+		</div>
+		</div>
+
+
+		<div id= "footer"> | Contact details: 26/28, The Promenade, Gloucester Rd, Bristol BS7 8AL | 0117 942 7319 | info@thegallimaufry.co.uk | <a class="selected" href="register.html">Register</a> | <a class="selected" href="login.html">Login</a> | 
+		 <a class="selected" href="/review">Review</a>	
+		 </div>	
+		
+
+	

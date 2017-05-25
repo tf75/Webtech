@@ -1,0 +1,43 @@
+
+	<div id="container">
+   		<div id="header">
+    	<h1> The Brass Pig </h1>
+  	 	</div>
+   
+   		<div id="content">
+    		<div id="nav">
+    			<h2> navigation </h2> 
+			    <ul>
+			    <li><a class="selected">Home</a></li>
+			    </ul>
+			    <div class="square">
+					<img src="brasspig.jpg"/>
+				</div>
+		    </div>
+
+    	<div id="main">
+			<p><strong> About </strong></p>
+
+			<p> An exciting new concept far removed from the corporate hum drum the Brass Pig, bar and restaurant is set over two distinct floors with an amazing auspicious terrace overlooking the triangle. Relax with fine food and drinks, that you won’t find anywhere else. </p>
+			
+			<p> The Brass Pig is a traditional public house located on Clifton Triangle in Bristol split over two floors – upstairs you’ll find leather armchairs and even a white mini grand piano whilst downstairs is all about the dance floor, DJ booth and huge projector screen. Outside on the heated terrace watch the world speed past as you relax with friends. The Brass Pig offers everything you would expect in this day and age in Bristol.
+			</p>
+
+			<p> For entertainment as well as regular theme nights including quizzes and open mic nights there are also loads of screens to catch up on the latest sport including a huge projector screen downstairs.</p>
+
+
+			<p><strong> Reviews </strong></p>
+			<p>{{name}}</p>
+		</div>
+		</div>
+		<div id = "Review"></div>
+		<script type="text/javascript">
+	    var info = "<p> My name is {{name}} and I live at {[street}} in {{city}}, {{state}}</p>";
+        var template = Handlebars.compile(info);
+        var data = template({name: "DEREK", street: "WASHINGTON", city: "LEAMINGTON", state: "EASHINGTON"});
+        document.getElementById("Review").innerHTML += data;
+		</script>
+
+		<div id= "footer"> | Contact details: Unit 1, Clifton Heights, Triangle West, Bristol BS8 1EJ | 0117 3294471 | <a class="selected" href="register.html">Register</a> 	
+		</div>	
+	</div>

@@ -1,0 +1,58 @@
+<div id="container">
+   		<div id="header">
+	    	<div id="svg">
+			 	<img src="circle.svg"
+			 	 width="90" height="130"/>
+	  	 	</div>
+	   		<div id="textcontainer">
+		     	<h1>Milk Thistle</h1>
+	    	</div>
+  	 	</div>
+   
+   
+   		<div id="content">
+    		<div id="nav">
+    			<h2> navigation </h2> 
+			    <ul>
+			    <li><a class="selected" href="">Home</a></li>
+			    </ul>
+			    <div class="square">
+					<img src="milkthistle.jpg"/>
+				</div>
+		    </div>
+    
+    	<div id="main">
+		<p><strong> About </strong></p>
+
+		<p> A venue for the discerning drinker. The Milk Thistle is a hidden prohibition cocktail bar in Bristol. </p>
+		
+		<p> We pride ourselves on being purveyors of the finest cocktails in the city, and with four floors, including a cocktail bar, lounge and private function rooms we’re also the perfect place to host a truly fabulous party!
+		</p>
+
+		<p> With a reputation as one of Bristol’s best kept secrets we promise to provide a decadent escape for those in the know who are looking for good food, good drinks,  good company, and most of all, a good time!
+		</p>
+
+
+		<p><strong> Reviews </strong></p>
+		<table>
+             {{#each data}}
+             <tr> 
+              <td> 
+                {{name}}
+              </td>
+              <td>
+                {{review}}
+              </td>
+             </tr>
+             {{/each}}
+            </table>
+            
+		</div>
+		
+		</div>
+		</div>
+		<div id= "footer"> | Contact details: Quay Head House, Colston Avenue, Bristol, BS1 1EB | 0117 929 4429 | Info@milkthistlebristol.com | <a class="selected" href="register.html">Register</a> <a class="selected" href="login.html">Login</a> | 
+		 <a class="selected" href="/review">Review</a> <a class="selected" href="login.html">Login</a> | 
+		 <a class="selected" href="/review">Review</a>		 
+		</div>	
+	

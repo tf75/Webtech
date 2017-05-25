@@ -1,0 +1,55 @@
+<div id="container">
+   		<div id="header">
+   			<div id="svg">
+			 	<img src="circle.svg"
+			 	 width="90" height="130"/>
+	  	 	</div>
+	   		<div id="textcontainer">
+		     	<h1>The Woods</h1>
+	    	</div>
+  	 	</div>
+   		<div id="content">
+    		<div id="nav">
+    			<h2> navigation </h2> 
+			    <ul>
+			    <li><a class="selected" href="">Home</a></li>
+			    </ul>
+			    <div class="square">
+					<img src="thewoods.jpg"/>
+				</div>
+		    </div>
+    
+    	<div id="main">
+		<p><strong> About </strong></p>
+
+		<p>The Woods bar sits just off the top end of bustling Park Street and is somewhat of a hidden gem with one of Bristol’s best spirit selections. </p>
+		
+		<p>We stock interesting beers and wines, make delicious traditional cocktails and most of all are known for our whiskies. The bar is split into two rooms, where animal heads and insects decorate the walls. There are rustic chesterfields, intimate tables for couples and larger tables for groups all in a vibrant environment with a buzzing atmosphere. We have an outdoor courtyard too.</p>
+
+		<p><strong> Reviews </strong></p>
+
+		<table>
+             {{#each data}}
+             <tr> 
+              <td> 
+                {{name}}
+              </td>
+              <td>
+                {{review}}
+              </td>
+             </tr>
+             {{/each}}
+            </table>
+            
+		</div>
+		
+		</div>
+		</div>
+
+
+		<div id= "footer"> | Contact details: 1 Park Street Avenue, Bristol, BS1 5LQ | 0117 925 0890 | info@thewoodsbar.co.uk | <a class="selected" href="register.html">Register</a> <a class="selected" href="login.html">Login</a> | 
+		 <a class="selected" href="/review">Review</a>	 
+
+		</div>	
+
+			

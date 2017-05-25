@@ -1,0 +1,64 @@
+
+	<div id="container">
+   		<div id="header">
+	    	<div id="svg">
+			 	<img src="circle.svg"
+			 	 width="90" height="130"/>
+	  	 	</div>
+	   		<div id="textcontainer">
+		     	<h1>The Canteen</h1>
+	    	</div>
+			
+  	 	</div>
+   
+   		<div id="content">
+    		<div id="nav">
+    			<h2> navigation </h2> 
+			    <ul>
+			    <li><a class="selected" href="">Home</a></li>
+			    </ul>
+			    <div class="square">
+					<img src="thecanteen.jpg"/>
+				</div>
+		    </div>
+    
+    	<div id="main">
+		<p><strong> About </strong></p>
+
+		<p>The Canteen-style bar and terrace is next to a Banksy mural with free live music and locally sourced food. </p>
+		
+		<p>The Canteen opened its doors in August 2009 to serve and provide for the people of Hamilton House, Stokes Croft, Bristol and beyond. At first a café, a bar, a restaurant and a music venue, the Canteen has become a melting pot, a meeting place and a place for people. Born out of the same ethos as Coexist CIC but formed as a separate company, the Canteen has driven the creative resurgence of Stokes Croft and been a centre piece to the Hamilton House story.</p>
+
+		<p>We value inclusivity, accessibility and healthy eating by keeping our prices affordable and always having a vegan and/or vegetarian option on the menu.
+		</p>		
+
+		<p><strong> Reviews </strong></p>
+
+		<table>
+             {{#each data}}
+             <tr> 
+              <td> 
+                {{name}}
+              </td>
+              <td>
+                {{review}}
+              </td>
+             </tr>
+             {{/each}}
+            </table>
+            
+		</div>
+		
+		</div>
+
+
+		</div>
+
+		<div id= "footer">
+		| Contact details: 80 Stokes Croft, Bristol BS1 3QY | 0117 923 2017 | canteenwest@googlemail.com | <a class="selected" href="register.html">Register</a> | <a class="selected" href="login.html">Login</a> | 
+		 <a class="selected" href="/review">Review</a>	
+		</div>	
+		
+
+
+	
