@@ -3,16 +3,13 @@
 <head> 
 </head> 
 <body> 
-<h1><Add Customer></h1>
-<form action="/users/add" method = "post"> 
+<h1><Add Customer Login ></h1>
+<form action="/users/login" method = "post"> 
 <label>Username</label><br>
-<input type="text" name="UName">
+<input type="text" name="Uname" required>
 <br>
 <label> Password </label><br> 
-<input type="text" name="PName">
-<br>
-<label> Email </label><br>
-<input type="text" name="EName">
+<input type="password" name="PName" required>
 <br><br> 
 <input type = "submit" value = "Submit">
 </form>
