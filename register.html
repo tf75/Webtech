@@ -1,21 +1,58 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" charset="utf-8">
 <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:700i"/>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
 </head> 
-<body> 
-<h1> Please Register to leave a review </h1>
-<h1><Add Customer Register ></h1>
-<form action="/users/add" method = "post"> 
-<label>Username</label><br>
-<input type="text" name="Uname" required>
-<br>
-<label> Password </label><br> 
-<input type="password" name="PName" required>
-<br>
-<label> Email </label><br>
-<input type="text" name="EName" required>
-<br><br> 
-<input type = "submit" value = "Submit">
-</form>
-</body> 
+<body>
+
+<div class = "preload" id = "preload">
+	<div class ="logo">
+	  <span style = "color: darkturquoise;">loading</span>
+	</div>
+		<div class = "loader-frame">
+		<div class = "loader1" id = "loader1"></div>
+		<div class = "loader2" id = "loader2"></div>
+	</div>
+</div>
+
+<script src="funcs.js"></script>
+
+	<div id="container">
+     <div id="content">
+      <svg width="500" height="80" viewBox="0 0 500 80">
+	   <style>
+		text{
+		    font-size: 2.5rem;
+			font-weight: bold;
+			font-family: 'PT Sans', sans-serif;
+			fill: url(#texture);
+			}
+		</style>
+		 <defs>
+			    <pattern width="200" patternUnits="userSpaceOnUse" height="80" id="texture">
+			    <image xlink:href="bluefont.png" width="200" height="80" />
+		    	</pattern>
+
+		 </defs>
+		<text x="0" y="40"> Register profile </text>
+	  </svg>
+		
+	<form action="/users/add" method = "post"> 
+	 <label>Username</label><br>
+	   <input type="text" name="Uname">
+	<br>
+	  <label> Password </label><br> 
+	   <input type="password" name="PName">
+	<br>
+	  <label> Email </label><br>
+	   <input type="text" name="EName">
+	<br><br> 
+	  <input type = "submit" value = "Submit">
+	</form>
+  
+  </div>	
+ </div>
+</body>	
 </html>

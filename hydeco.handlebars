@@ -1,23 +1,33 @@
+<div class = "preload" id = "preload">
+  <div class ="logo">
+    <span style = "color: darkturquoise;">loading</span>
+  </div>
+    <div class = "loader-frame">
+    <div class = "loader1" id = "loader1"></div>
+    <div class = "loader2" id = "loader2"></div>
+  </div>
+</div>
+
+<script src="funcs.js"></script>
+
 <div id="container">
-   		<div id="header">
-	    	<div id="svg">
-			 	<img src="circle.svg"
-			 	 width="90" height="130"/>
-	  	 	</div>
-	   		<div id="textcontainer">
-		     	<h1>Hyde and Co.</h1>
-	    	</div>
-  	 	</div>
-   		<div id="content">
-    		<div id="nav">
-    			<h2> navigation </h2> 
-			    <ul>
-			    <li><a class="selected" href="">Home</a></li>
-			    </ul>
-			    <div class="square">
-					<img src="hydeco.jpg"/>
-				</div>
-		    </div>
+ <div id="header">
+  <div id="svg">
+   <img src="circle.svg" width="90" height="130"/>
+  </div>
+   <div id="textcontainer">
+	 <h1>Hyde and Co.</h1>
+   </div>
+  </div>
+    <div id="content">
+     <div id="nav"> 
+	  <ul>
+	  <li><a class="selected" href="index.html">Home</a></li>
+	  </ul>
+	    <div class="square">
+		 <img src="hydeco.jpg"/>
+	    </div>
+	 </div>
     
     	<div id="main">
 		<p><strong> About </strong></p>
@@ -26,26 +36,32 @@
 		
 		<p>This speakeasy-style bar, just by The Triangle, is the sister venue of Milk Thistle and has a similarly eclectic, low-lit gentleman's club vibe going on. It's a fantastic place for a cocktail: atmospheric and handsomely decked out with a piano in the corner and a selection of vintage lampshades. Hyde and Co's cocktails are classic concoctions in the main, drawn from the Prohibition era; they do a nice line in fizzes and highballs the Moonraker mixes whiskey with chartreuse and grapefruit bitters and the Manhattan Clipper with Morello syup and chocolate bitters sounds particularly delcious.</p>
 
-		<p><strong> Reviews </strong></p>
+		<div id="review">
+             
+      <table>
 
-		<table>
-             {{#each data}}
-             <tr> 
-              <td> 
-                {{name}}
-              </td>
-              <td>
-                {{review}}
-              </td>
+       <tr>
+        <th>Username</th>
+           <th>Review</th>
              </tr>
-             {{/each}}
-            </table>
+               {{#each data}} 
+                <tr>
+                 <td> 
+                  {{name}}
+                  </td>
+                   <td>
+                    {{review}}
+                   </td>
+                </tr>
+                {{/each}}
+              </table>
+
+            </div>
             
 		</div>
 		
-		</div>
+	 </div>
 
-		<div id= "footer"> | Contact details: 2 The Basement, Upper Byron Pl. Bristol, BS8 1JY Bristol | 441179297007 | prohibition@hydeandcobristol.com | <a class="selected" href="register.html">Register</a> <a class="selected" href="login.html">Login</a> | 
-		 <a class="selected" href="/review">Review</a>	 
+		<div id= "footer"> | Contact details: 2 The Basement, Upper Byron Pl. Bristol, BS8 1JY Bristol | 441179297007 | prohibition@hydeandcobristol.com | <a class="selected" href="register.html">Register</a> | <a class="selected" href="login.html">Login</a> | <a class="selected" href="/review">Review</a> | <a class="selected" href="users/logout">Logout</a>		 
 		 </div>
-		 </div>	
+</div>	

@@ -6,15 +6,20 @@ var app = express();
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('User.db');
 var exphbs  = require('express-handlebars');
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
+
 var cookieParser = require('cookie-parser');
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 var session = require('express-session');
-// parse application/json
 app.use(bodyParser.json());
+
+var https = require('https');
+var fs = require('fs');
+
+var mainusername;
 
 app.engine('handlebars', exphbs({defaultLayout: 'home'}));
 app.set('view engine', 'handlebars');
@@ -24,7 +29,19 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
-}))
+}));
+
+https.createServer({
+      key: fs.readFileSync('key.pem'),
+      cert: fs.readFileSync('cert.pem'),
+      passphrase: 'tomandollie'
+    }, app).listen(3000);
+
+
+app.get('/', function (req, res) {
+    res.type('application/xhtml+xml');
+    res.redirect('../index.html');
+});
 
 app.get('/brasspig', function (req, res) {
     res.type('application/xhtml+xml');
@@ -52,6 +69,7 @@ app.get('/woods', function (req, res) {
     });
     res.render('woods', {data});
 });
+
 
 app.get('/gallimaufry', function (req, res) {
     res.type('application/xhtml+xml');
@@ -92,9 +110,10 @@ app.get('/redlight', function (req, res) {
 app.post('/users/login', function(req, res, url){
   
        res.type('application/xhtml+xml');
-
+       
        var sess = req.session;
-
+       sess.cookie.secure = false;
+     
         var username = req.body.Uname;
         var password = req.body.PName;
 
@@ -102,22 +121,25 @@ app.post('/users/login', function(req, res, url){
         db.each("SELECT COUNT(*) AS count FROM Person WHERE Username = ? AND Password = ?" , username, password, function(err, row){
             number = row.count;
        },
-        function (){
+        function(){
             if(number == 1){
                sess.cookie.secure = true;
-                res.render('review')
+               mainusername = req.body.Uname;
+                res.redirect('../index.html')
             }
             else{
-                res.redirect('../register2.html')
+                res.redirect('../login.html')
             }
         })   
 
    });
 
+
 app.post('/users/add', function(req, res, url){
        res.type('application/xhtml+xml');
-
+        
         var sess = req.session; 
+        sess.cookie.secure = false;
 
         var username = req.body.Uname;
         var password = req.body.PName;
@@ -132,7 +154,8 @@ app.post('/users/add', function(req, res, url){
                 var stmt = db.prepare("INSERT INTO Person (Username, Password, Email) VALUES (?, ?, ?)");
                 stmt.run(username, password, email);
                 stmt.finalize(); 
-                res.render('review')
+                mainusername = req.body.Uname;
+                res.redirect('../index.html')
             }
             else{
                 res.redirect('../register2.html')
@@ -145,17 +168,18 @@ app.get('/review', function (req, res) {
     res.type('application/xhtml+xml');
     var sess = req.session;
     if (sess.cookie.secure == true) {
-    res.render('review');
+    var username = mainusername;
+    res.render('review', {layout: 'homereview', username});
     }
     else{
-        res.redirect('../register2.html');
+        res.redirect('../login.html');
     }
 });
 
 app.post('/users/review', function(req, res, url){
     res.type('application/xhtml+xml');  
 	var sess = req.session;
-    if (sess.cookie.secure == true) {
+    if (sess.cookie.secure == true && mainusername == req.body.Uname) {
     var username = req.body.Uname;
     var pubname = req.body.Pname;
     var date = req.body.Dname;
@@ -172,15 +196,25 @@ app.post('/users/review', function(req, res, url){
     }
 });
 
-app.use(session({
-  genid: function() {
-    return genuuid() // use UUIDs for session IDs
-  },
-  secret: 'havingagoodtime'
-}));
+app.get('/users/logout', function(req, res){
+    res.type('application/xhtml+xml');
+
+  var sess = req.session;
+  sess.cookie.secure = false;  
+  res.redirect('../index.html');
+});
 
 
 
-app.listen(3000, function(){
-	console.log('server started on port 3000');
+app.get('*', function(req, res, next){
+ var err = new Error();
+ err.status = 404;
+ next(err);
 })
+
+app.use(function (err, req, res, next){
+ if(err.status !== 404){
+    return next();
+ }
+ res.render('404');
+});

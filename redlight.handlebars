@@ -1,23 +1,33 @@
+<div class = "preload" id = "preload">
+	<div class ="logo">
+	  <span style = "color: darkturquoise;">loading</span>
+	</div>
+		<div class = "loader-frame">
+		<div class = "loader1" id = "loader1"></div>
+		<div class = "loader2" id = "loader2"></div>
+	</div>
+</div>
+
+<script src="funcs.js"></script>
+
 <div id="container">
-   		<div id="header">
-   			<div id="svg">
-			 	<img src="circle.svg"
-			  width="90" height="130"/>
-	  	 	</div>
-	   		<div id="textcontainer">
-		     	<h1>Red Light</h1>
-	    	</div>
-  	 	</div>
-   		<div id="content">
-    		<div id="nav">
-    			<h2> navigation </h2> 
-			    <ul>
-			    <li><a class="selected" href="">Home</a></li>
-			    </ul>
-			    <div class="square">
-					<img src="redlight.jpg"/>
-				</div>
-		    </div>
+ <div id="header">
+  <div id="svg">
+   <img src="circle.svg" width="90" height="130"/>
+  </div>
+  <div id="textcontainer">
+   <h1>Red Light</h1>
+  </div>
+  </div>
+   <div id="content">
+     <div id="nav"> 
+	  <ul>
+	  <li><a class="selected" href="index.html">Home</a></li>
+	  </ul>
+	   <div class="square">
+		<img src="redlight.jpg"/>
+	   </div>
+	  </div>
     
     	<div id="main">
 		<p><strong> About </strong></p>
@@ -29,29 +39,36 @@
 		<p> Some of the drinks had us raising an eyebrow at the flavour, and we did find that Red Light’s short cocktails were far better than their long ones, but die-hard booze fanatics will certainly find something to interest them here.
 		</p>		
 
-		<p><strong> Reviews </strong></p>
+		<div id="review">
+             
+			<table>
 
-		<table>
-             {{#each data}}
-             <tr> 
-              <td> 
-                {{name}}
-              </td>
-              <td>
-                {{review}}
-              </td>
+			 <tr>
+			  <th>Username</th>
+		       <th>Review</th>
              </tr>
-             {{/each}}
-            </table>
+               {{#each data}} 
+                <tr>
+                 <td> 
+                  {{name}}
+                  </td>
+                   <td>
+                    {{review}}
+                   </td>
+                </tr>
+                {{/each}}
+              </table>
+
+            </div>
             
 		</div>
 
-		</div>
+	</div>
 		<div id= "footer">
 		| Contact details: Red Light , 1 Unity St, Bristol, BS1 5HH | 0117 929 1453 | info@redlightbristol.xxx | <a class="selected" href="register.html">Register</a> | <a class="selected" href="login.html">Login</a> | 
-		 <a class="selected" href="/review">Review</a>	
+		 <a class="selected" href="/review">Review</a> | <a class="selected" href="users/logout">Logout</a>			
 		</div>	
-		</div>
+</div>
 
 
 	

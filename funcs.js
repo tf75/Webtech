@@ -1,13 +1,32 @@
+addEventListener('load', start);
 
-function mouse1overbox(){
 
-	var on = document.getElementById("1demo").style.opacity = 0.75;
+var preload = document.getElementById("preload");
+
+
+
+function start() {
+  var e1 = document.querySelector("#e1");
+  e1.onmouseover = mouseOverBox;
+  e1.onmouseout= mouseNotBox;
 }
 
-function mouse1notbox(){
-
-	var on = document.getElementById("1demo").style.opacity = 1;
+function mouseOverBox(event){
+	var e = event.target;
+	if (e.tagName.toLowerCase() != 'div') return;
+	e.style.opacity = 1;
 }
+
+function mouseNotBox(event){
+ 	var e = event.target;
+	if (e.tagName.toLowerCase() != 'div') return;
+   console.log(event);
+	e.style.opacity = 0.75;
+}
+
+window.addEventListener('load', function(){
+  preload.style.display = 'none';
+});
 
 function mouse2overbox(){
 
@@ -68,3 +87,4 @@ function mouse7notbox(){
 
 	var on = document.getElementById("7demo").style.opacity = 1;
 }
+

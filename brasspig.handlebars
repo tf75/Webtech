@@ -1,26 +1,37 @@
-    <div id="container">
-   		<div id="header">
-   			<div id="svg">
-			 	<img src="circle.svg"
-			 	 width="90" height="130"/>
-	  	 	</div>
-	   		<div id="textcontainer">
-		     	<h1>The Brass Pig</h1>
-	    	</div>	
-  	 	</div>
-   
-    		<div id="content">
-    		<div id="nav">
-    			<h2> navigation </h2> 
-			    <ul>
-			    <li><a class="selected" href="">Home</a></li>
-			    </ul>
-			    <div class="square">
-					<img src="brasspig.jpg"/>
-				</div>
-		    </div>
+<div class = "preload" id = "preload">
+	<div class ="logo">
+	  <span style = "color: darkturquoise;">loading</span>
+	</div>
+		<div class = "loader-frame">
+		<div class = "loader1" id = "loader1"></div>
+		<div class = "loader2" id = "loader2"></div>
+	</div>
+</div>
 
-    	<div id="main">
+<script src="funcs.js"></script>
+
+
+ <div id="container">
+  <div id="header">
+  <div id="svg">
+   <img src="circle.svg" width="90" height="130"/>
+  </div>
+    <div id="textcontainer">
+	 <h1>The Brass Pig</h1>
+	 </div>	
+   </div>
+   
+    <div id="content">
+    <div id="nav"> 
+	 <ul>
+	  <li><a class="selected" href="index.html">Home</a></li>
+	 </ul>
+	  <div class="square">
+        <img src="brasspig.jpg"/>
+	   </div>
+	</div>
+
+        <div id="main">
 			<p><strong> About </strong></p>
 
 			<p> An exciting new concept far removed from the corporate hum drum the Brass Pig, bar and restaurant is set over two distinct floors with an amazing auspicious terrace overlooking the triangle. Relax with fine food and drinks, that you won’t find anywhere else. </p>
@@ -31,28 +42,35 @@
 			<p> For entertainment as well as regular theme nights including quizzes and open mic nights there are also loads of screens to catch up on the latest sport including a huge projector screen downstairs.</p>
 
 
-			<p><strong> Reviews </strong></p>
-
+			<div id="review">
+             
 			<table>
-             {{#each data}}
-             <tr> 
-              <td> 
-               {{name}}
-              </td>
-              <td>
-                {{review}}
-              </td>
+
+			 <tr>
+			  <th>Username</th>
+		       <th>Review</th>
              </tr>
-             {{/each}}
-            </table>
+               {{#each data}} 
+                <tr>
+                 <td> 
+                  {{name}}
+                  </td>
+                   <td>
+                    {{review}}
+                   </td>
+                </tr>
+                {{/each}}
+              </table>
+
+            </div>
             
-		</div>
+	   </div>
 		
-		</div>
-		</div>
+	</div>
+ </div>
 
 		<div id= "footer"> | Contact details: Unit 1, Clifton Heights, Triangle West, Bristol BS8 1EJ | 0117 3294471 | <a class="selected" href="register.html">Register</a> | <a class="selected" href="login.html">Login</a> | 
-		 <a class="selected" href="/review">Review</a>	
+		 <a class="selected" href="/review">Review</a> | <a class="selected" href="users/logout">Logout</a>		
 		</div>	
 	
 	
